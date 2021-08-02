@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:we_learn/component/sign_in_page/sign_in_button.dart';
-import 'package:we_learn/component/sign_in_page/textbox.dart';
+import 'package:we_learn/page/sign_up/sign_up.dart';
+import 'component/sign_in_button.dart';
+import 'component/text_box.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -34,7 +35,7 @@ class SignIn extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(121.8, 78.3, 0, 0),
                 child: Image.asset(
-                  'assets/researching.png',
+                  'assets/sign_in_img.png',
                   width: 224.19,
                   height: 165.18,
                 ),
@@ -106,7 +107,12 @@ class SignIn extends StatelessWidget {
                           color: Colors.white.withOpacity(0.7)),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignUp()),
+                        );
+                      },
                       child: Text(
                         'ลงทะเบียน ',
                         style: TextStyle(
@@ -149,6 +155,7 @@ class SignIn extends StatelessWidget {
                   )),
                 ]),
               ),
+              // ปุ่มเข้าระบบด้วย facebook
               Container(
                 alignment: Alignment.topCenter,
                 margin: EdgeInsets.only(top: 657.1),
@@ -158,6 +165,7 @@ class SignIn extends StatelessWidget {
                   height: 41,
                 ),
               ),
+              // ปุ่มเข้าระบบด้วย google
               Container(
                 alignment: Alignment.topCenter,
                 margin: EdgeInsets.only(top: 714.9),
