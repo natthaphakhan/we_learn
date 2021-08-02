@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:we_learn/launcher.dart';
 import 'package:we_learn/page/sign_up/sign_up.dart';
 import 'component/sign_in_button.dart';
 import 'component/text_box.dart';
@@ -156,23 +157,39 @@ class SignIn extends StatelessWidget {
                 ]),
               ),
               // ปุ่มเข้าระบบด้วย facebook
-              Container(
-                alignment: Alignment.topCenter,
-                margin: EdgeInsets.only(top: 657.1),
-                child: Image.asset(
-                  'assets/facebook_button.png',
-                  width: 318,
-                  height: 41,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
+                  );
+                },
+                child: Container(
+                  alignment: Alignment.topCenter,
+                  margin: EdgeInsets.only(top: 657.1),
+                  child: Image.asset(
+                    'assets/facebook_button.png',
+                    width: 318,
+                    height: 41,
+                  ),
                 ),
               ),
               // ปุ่มเข้าระบบด้วย google
-              Container(
-                alignment: Alignment.topCenter,
-                margin: EdgeInsets.only(top: 714.9),
-                child: Image.asset(
-                  'assets/google_button.png',
-                  width: 318,
-                  height: 41,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
+                  );
+                },
+                child: Container(
+                  alignment: Alignment.topCenter,
+                  margin: EdgeInsets.only(top: 714.9),
+                  child: Image.asset(
+                    'assets/google_button.png',
+                    width: 318,
+                    height: 41,
+                  ),
                 ),
               ),
             ],

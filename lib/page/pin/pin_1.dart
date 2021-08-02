@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:we_learn/launcher.dart';
 import 'package:we_learn/page/pin/component/pin_box.dart';
 import 'package:we_learn/page/pin/pin2.dart';
 
@@ -31,7 +32,12 @@ class Pin1 extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(325, 41, 29, 0),
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Home()),
+                        );
+                      },
                       child: Text(
                         'ข้าม',
                         style: TextStyle(

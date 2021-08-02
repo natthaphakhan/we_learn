@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:we_learn/launcher.dart';
 import 'package:we_learn/page/pin/component/pin_box.dart';
 
 class Pin2 extends StatelessWidget {
@@ -80,7 +81,12 @@ class Pin2 extends StatelessWidget {
                   width: 154,
                   height: 38,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Home()),
+                      );
+                    },
                     child: Center(
                       child: Text(
                         'ยืนยัน',
