@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:we_learn/page/pin/pin_1.dart';
 
 class ButtonSignUp extends StatelessWidget {
   @override
@@ -8,7 +9,10 @@ class ButtonSignUp extends StatelessWidget {
       height: 41,
       child: ElevatedButton(
         onPressed: () {
-          
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Pin1()),
+          );
         },
         child: Center(
           child: Text(
