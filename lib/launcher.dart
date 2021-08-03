@@ -11,7 +11,7 @@ import 'dart:async';
 
 import 'package:we_learn/page/sign_in/sign_in.dart';
 
-import 'launcher_component/drop_down.dart';
+import 'page/recommend/component/drop_down.dart';
 
 StreamController<bool> streamclr = StreamController<bool>.broadcast();
 

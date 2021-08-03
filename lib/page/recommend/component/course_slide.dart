@@ -31,9 +31,18 @@ class _SlideState extends State<Slide> {
         .list
         .map(
           (i) => Container(
+            margin: EdgeInsets.symmetric(vertical: 10),
             width: 232,
-            height: 290,
+            height: 300,
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                  color: Color.fromRGBO(216, 216, 216, 0.7),
+                  offset: Offset(0, 3),
+                  blurRadius: 6,
+                  spreadRadius: -7)
+            ]),
             child: Card(
+              elevation: 0,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
               child: Column(
@@ -93,7 +102,7 @@ class _SlideState extends State<Slide> {
                         ),
                         Icon(
                           Icons.star_border_outlined,
-                          color: Colors.grey,
+                          color: Colors.yellow[700],
                           size: 16,
                         ),
                         SizedBox(
@@ -111,7 +120,7 @@ class _SlideState extends State<Slide> {
                     padding: const EdgeInsets.fromLTRB(13, 0, 13, 12),
                     child: Row(
                       children: [
-                        Text('THB 1,500',
+                        Text('฿ 1,500',
                             style: TextStyle(
                                 color: Color.fromRGBO(111, 116, 183, 1),
                                 fontWeight: FontWeight.bold)),
@@ -143,7 +152,7 @@ class _SlideState extends State<Slide> {
           items: card,
           options: CarouselOptions(
               viewportFraction: 0.67,
-              height: 290,
+              height: 300,
               enableInfiniteScroll: true,
               autoPlay: false,
               enlargeCenterPage: false,

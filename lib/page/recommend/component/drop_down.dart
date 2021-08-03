@@ -12,7 +12,7 @@ class _DropdownState extends State<Dropdown> {
   Widget build(BuildContext context) {
     return Material(
       borderRadius: BorderRadius.circular(5),
-      elevation: 4,
+      elevation: 1,
       child: Container(
         padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
         width: 154,
@@ -21,9 +21,9 @@ class _DropdownState extends State<Dropdown> {
           isExpanded: true,
           icon: Icon(
             Icons.expand_more,
-            color: Colors.grey,
+            color: Colors.grey.withOpacity(0.6),
           ),
-          elevation: 4,
+          elevation: 1,
           value: dropdownValue,
           style: TextStyle(fontFamily: 'NotoSansThai', color: Colors.grey),
           underline: SizedBox(),
@@ -58,7 +58,7 @@ class _Dropdown2State extends State<Dropdown2> {
   Widget build(BuildContext context) {
     return Material(
       borderRadius: BorderRadius.circular(5),
-      elevation: 4,
+      elevation: 1,
       child: Container(
         padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
         width: 154,
@@ -67,11 +67,13 @@ class _Dropdown2State extends State<Dropdown2> {
           isExpanded: true,
           icon: Icon(
             Icons.expand_more,
-            color: Colors.grey,
+            color: Color.fromRGBO(155, 155, 155, 1).withOpacity(0.6),
           ),
-          elevation: 4,
+          elevation: 1,
           value: dropdownValue2,
-          style: TextStyle(fontFamily: 'NotoSansThai', color: Colors.grey),
+          style: TextStyle(
+              fontFamily: 'NotoSansThai',
+              color: Color.fromRGBO(155, 155, 155, 1)),
           underline: SizedBox(),
           onChanged: (String? newValue) {
             setState(() {
