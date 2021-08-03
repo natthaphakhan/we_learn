@@ -5,6 +5,7 @@ import 'package:we_learn/page/recommend/recommend.dart';
 import 'package:we_learn/page/search/search.dart';
 
 import 'package:we_learn/page/sign_in/sign_in.dart';
+import 'package:we_learn/page/teach_with_us/teach_with_us.dart';
 
 import 'page/recommend/component/drop_down.dart';
 
@@ -23,7 +24,7 @@ class _HomeState extends State<Home> {
     Search(),
     MyCourse(),
     MyList(),
-    // OnSearch()
+    TechWithUs()
   ];
 
   int _currentIndex = 0;
@@ -168,7 +169,7 @@ class _HomeState extends State<Home> {
                                       fontWeight: FontWeight.w500),
                                 ),
                           onTap: () {
-                            _onItemTapped(3);
+                            _onItemTapped(4);
                           },
                         ),
                       ],
@@ -232,9 +233,15 @@ class _HomeState extends State<Home> {
                   Container(
                     margin: EdgeInsets.only(top: 125),
                     child: _currentIndex.toString().contains('3')
-                        ? SearchMyList()
+                        ? SearchMyListinTech()
                         : Text(''),
-                  )
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 125),
+                    child: _currentIndex.toString().contains('4')
+                        ? SearchMyListinTech()
+                        : Text(''),
+                  ),
                 ],
               ),
             ),
