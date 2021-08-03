@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -13,34 +11,8 @@ class PinBox extends StatefulWidget {
 class _PinBoxState extends State<PinBox> {
   TextEditingController textEditingController = TextEditingController();
 
-  // ignore: close_sinks
-  StreamController<ErrorAnimationType>? errorController;
-
-  bool hasError = false;
   String currentText = "";
   final formKey = GlobalKey<FormState>();
-
-  @override
-  void initState() {
-    errorController = StreamController<ErrorAnimationType>();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    errorController!.close();
-
-    super.dispose();
-  }
-
-  snackBar(String? message) {
-    return ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message!),
-        duration: Duration(seconds: 2),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,13 +21,20 @@ class _PinBoxState extends State<PinBox> {
       child: Container(
         padding: EdgeInsets.zero,
         child: PinCodeTextField(
+          textStyle: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.w500,
+              color: Color.fromRGBO(111, 116, 183, 1)),
+          boxShadows: [
+            BoxShadow(color: Colors.grey),
+            BoxShadow(
+              color: Colors.grey[100]!,
+              spreadRadius: -2,
+              blurRadius: 3,
+            )
+          ],
           appContext: context,
-          pastedTextStyle: TextStyle(
-            color: Color.fromRGBO(111, 116, 183, 1),
-            fontWeight: FontWeight.bold,
-          ),
           length: 4,
-          obscureText: false,
           blinkWhenObscuring: true,
           animationType: AnimationType.none,
           pinTheme: PinTheme(
@@ -65,14 +44,10 @@ class _PinBoxState extends State<PinBox> {
             fieldHeight: 50,
             fieldWidth: 72,
             selectedColor: Color.fromRGBO(111, 116, 183, 1),
-            selectedFillColor: Color.fromRGBO(245, 245, 245, 1),
-            activeFillColor: Color.fromRGBO(245, 245, 245, 1),
-            inactiveFillColor: Color.fromRGBO(245, 245, 245, 1),
           ),
-          cursorColor: Colors.black,
+          cursorColor: Color.fromRGBO(111, 116, 183, 1),
           animationDuration: Duration(milliseconds: 0),
-          enableActiveFill: true,
-          errorAnimationController: errorController,
+          enableActiveFill: false,
           controller: textEditingController,
           keyboardType: TextInputType.number,
           onChanged: (value) {
