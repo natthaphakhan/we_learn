@@ -13,7 +13,7 @@ class _BoxSearchState extends State<BoxSearch> {
       height: 36,
       child: Material(
         borderRadius: BorderRadius.all(Radius.circular(5)),
-        elevation: 2,
+        elevation: .5,
         child: TextField(
           decoration: InputDecoration(
             // suffixIcon: IconButton(
@@ -23,13 +23,13 @@ class _BoxSearchState extends State<BoxSearch> {
             // icon: Icon(Icons.arrow_forward_ios_rounded)),
             hintText: "ค้นหาคอร์สเรียน",
             prefixIcon: Icon(Icons.search,
-                color: Color.fromRGBO(199, 199, 199, 1), size: 14),
+                color: Colors.grey, size: 16),
             hintStyle: TextStyle(
-                color: Color.fromRGBO(199, 199, 199, 1), fontSize: 14),
+                color: Colors.grey, fontSize: 14),
             contentPadding: EdgeInsets.zero,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(5.0)),
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: Colors.grey.withOpacity(0.2)),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(5.0)),
