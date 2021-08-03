@@ -47,7 +47,7 @@ class _SearchState extends State<Search> {
               margin: EdgeInsets.symmetric(horizontal: 28, vertical: 0),
               child: isSearch == false
                   ? Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           children: [
@@ -112,9 +112,7 @@ class _BoxSearchState extends State<BoxSearch> {
             decoration: InputDecoration(
               hintText: "ค้นหา",
               prefixIcon: Icon(Icons.search),
-              hintStyle: TextStyle(
-                color: Colors.grey,
-              ),
+              hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
               contentPadding: EdgeInsets.zero,
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -179,7 +177,7 @@ class _BTPopwordState extends State<BTPopword> {
                   ),
                   child: Text(
                     i,
-                    style: TextStyle(color: Colors.black,fontSize: 13),
+                    style: TextStyle(color: Colors.black, fontSize: 13),
                   ),
                 ),
               ),

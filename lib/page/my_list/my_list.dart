@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/percent_indicator.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:we_learn/page/all_course/component/drop_down_filter.dart';
+import 'package:we_learn/page/my_list/component/my_list_card.dart';
 
-class MyCourse extends StatefulWidget {
+class MyList extends StatefulWidget {
+  const MyList({Key? key}) : super(key: key);
+
   @override
-  _MyCourseState createState() => _MyCourseState();
+  _MyListState createState() => _MyListState();
 }
 
-class _MyCourseState extends State<MyCourse> {
+class _MyListState extends State<MyList> {
   bool valueBox1 = false;
   @override
   Widget build(BuildContext context) {
@@ -418,36 +421,63 @@ class _MyCourseState extends State<MyCourse> {
               style: TextStyle(fontSize: 12),
             ),
           ),
-          CourseProgress(0.45, Colors.yellow[700]!, false),
-          Expanded(
-              child: Divider(
-            thickness: 1,
-            color: Colors.grey[300],
-          )),
-          CourseProgress(1.0, Colors.green, true),
-          Expanded(
-              child: Divider(
-            thickness: 1,
-            color: Colors.grey[300],
-          )),
-          CourseProgress(1.0, Colors.green, true),
-          Expanded(
-              child: Divider(
-            thickness: 1,
-            color: Colors.grey[300],
-          )),
+          Slidable(
+            actionPane: SlidableBehindActionPane(),
+            child: MyListCard(),
+            secondaryActions: [
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    'assets/delete.png',
+                    fit: BoxFit.cover,
+                    height: 262,
+                  ))
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Slidable(
+            actionPane: SlidableBehindActionPane(),
+            child: MyListCard(),
+            secondaryActions: [
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    'assets/delete.png',
+                    fit: BoxFit.cover,
+                    height: 262,
+                  ))
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Slidable(
+            actionPane: SlidableBehindActionPane(),
+            child: MyListCard(),
+            secondaryActions: [
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    'assets/delete.png',
+                    fit: BoxFit.cover,
+                    height: 262,
+                  ))
+            ],
+          ),
         ],
       ),
     );
   }
 }
 
-class SearchMyCourse extends StatefulWidget {
+class SearchMyList extends StatefulWidget {
   @override
-  _SearchMyCourseState createState() => _SearchMyCourseState();
+  _SearchMyListState createState() => _SearchMyListState();
 }
 
-class _SearchMyCourseState extends State<SearchMyCourse> {
+class _SearchMyListState extends State<SearchMyList> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -459,7 +489,7 @@ class _SearchMyCourseState extends State<SearchMyCourse> {
         elevation: 1,
         child: TextField(
           decoration: InputDecoration(
-            hintText: "ค้นหาคอร์สเรียนของฉัน",
+            hintText: "ค้นหารายการของฉัน",
             prefixIcon: Icon(Icons.search),
             hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
             contentPadding: EdgeInsets.zero,
@@ -473,120 +503,6 @@ class _SearchMyCourseState extends State<SearchMyCourse> {
                   BorderSide(color: Color.fromRGBO(111, 116, 183, 1), width: 1),
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class CourseProgress extends StatelessWidget {
-  final double percen;
-  final Color color;
-  final bool complete;
-  CourseProgress(this.percen, this.color, this.complete);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(builder: (context) => Video()),
-        // );
-      },
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 28),
-        width: double.maxFinite,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(5),
-              child: Image.asset(
-                'assets/img_course_1.jpeg',
-                fit: BoxFit.cover,
-                width: 72,
-                height: 72,
-              ),
-            ),
-            Expanded(
-              child: Container(
-                margin: EdgeInsets.only(left: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ListTile(
-                      minVerticalPadding: 0,
-                      contentPadding: EdgeInsets.symmetric(horizontal: 0),
-                      title: Text(
-                        'Photography Masterclass: A Complete Guide to Photography',
-                        style: TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Text(
-                        'หลักสูตรมาสเตอร์เตอร์คลาสแห่งการถ่ายภาพ: การถ่ายภาพเบื้องต้นฉบับสมบูรณ์',
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 5),
-                      child: LinearPercentIndicator(
-                        width: 238,
-                        animation: true,
-                        lineHeight: 10,
-                        animationDuration: 1000,
-                        percent: percen,
-                        linearStrokeCap: LinearStrokeCap.roundAll,
-                        progressColor: color,
-                      ),
-                    ),
-                    complete == true
-                        ? Row(
-                            children: [
-                              Text(
-                                ' สำเร็จการศึกษา',
-                                style: TextStyle(
-                                    color: Colors.green,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Expanded(
-                                child: SizedBox(),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 8),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Icon(
-                                      Icons.download,
-                                      size: 16,
-                                      color: Color.fromRGBO(111, 116, 183, 1),
-                                    ),
-                                    Text(
-                                      'ประกาศนียบัตร',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 12,
-                                          color:
-                                              Color.fromRGBO(111, 116, 183, 1)),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          )
-                        : Text(
-                            ' กำลังศึกษา ${(percen * 100)}%',
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.bold),
-                          )
-                  ],
-                ),
-              ),
-            ),
-          ],
         ),
       ),
     );

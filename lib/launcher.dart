@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:we_learn/page/my_course/my_course.dart';
+import 'package:we_learn/page/my_list/my_list.dart';
 import 'package:we_learn/page/recommend/recommend.dart';
 import 'package:we_learn/page/search/search.dart';
 
@@ -21,7 +22,7 @@ class _HomeState extends State<Home> {
     Recommend(),
     Search(),
     MyCourse(),
-    // MyFavorite(),
+    MyList(),
     // OnSearch()
   ];
 
@@ -228,12 +229,12 @@ class _HomeState extends State<Home> {
                         ? SearchMyCourse()
                         : Text(''),
                   ),
-                  // Container(
-                  //   margin: EdgeInsets.only(top: 125),
-                  //   child: _currentIndex.toString().contains('3')
-                  //       ? SearchMyFav()
-                  //       : Text(''),
-                  // )
+                  Container(
+                    margin: EdgeInsets.only(top: 125),
+                    child: _currentIndex.toString().contains('3')
+                        ? SearchMyList()
+                        : Text(''),
+                  )
                 ],
               ),
             ),
