@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:we_learn/page/my_course/my_course.dart';
 import 'package:we_learn/page/recommend/recommend.dart';
-// import 'package:we_learn_pro/pages/my_course.dart';
-// import 'package:we_learn_pro/pages/my_favorite.dart';
-// import 'package:we_learn_pro/pages/notification.dart';
-// import 'package:we_learn_pro/pages/recommend.dart';
-// import 'package:we_learn_pro/pages/search.dart';
-// import 'package:we_learn_pro/pages/on_search.dart';
-// import 'package:we_learn_pro/pages/sign_in.dart';
-import 'dart:async';
+import 'package:we_learn/page/search/search.dart';
 
 import 'package:we_learn/page/sign_in/sign_in.dart';
 
 import 'page/recommend/component/drop_down.dart';
-
-StreamController<bool> streamclr = StreamController<bool>.broadcast();
 
 class Home extends StatefulWidget {
   @override
@@ -27,19 +19,17 @@ class _HomeState extends State<Home> {
 
   List<Widget> _pageWidget = <Widget>[
     Recommend(),
-    // Search(streamclr.stream),
-    // MyCourse(),
+    Search(),
+    MyCourse(),
     // MyFavorite(),
     // OnSearch()
   ];
 
   int _currentIndex = 0;
+
   void _onItemTapped(int i) {
     setState(() {
       _currentIndex = i;
-      if (i == 1) {
-        streamclr.add(false);
-      }
     });
   }
 
@@ -117,14 +107,14 @@ class _HomeState extends State<Home> {
                         GestureDetector(
                           child: _currentIndex.toString().contains('2')
                               ? Text(
-                                  'คอร์สของฉัน',
+                                  'คอร์สเรียนของฉัน',
                                   style: TextStyle(
                                       color: Color.fromRGBO(255, 222, 39, 1),
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700),
                                 )
                               : Text(
-                                  'คอร์สของฉัน',
+                                  'คอร์สเรียนของฉัน',
                                   style: TextStyle(
                                       color: Colors.white.withOpacity(0.7),
                                       fontSize: 14,
@@ -140,14 +130,37 @@ class _HomeState extends State<Home> {
                         GestureDetector(
                           child: _currentIndex.toString().contains('3')
                               ? Text(
-                                  'รายการโปรด',
+                                  'รายการของฉัน',
                                   style: TextStyle(
                                       color: Color.fromRGBO(255, 222, 39, 1),
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700),
                                 )
                               : Text(
-                                  'รายการโปรด',
+                                  'รายการของฉัน',
+                                  style: TextStyle(
+                                      color: Colors.white.withOpacity(0.7),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                          onTap: () {
+                            _onItemTapped(3);
+                          },
+                        ),
+                        SizedBox(
+                          width: 50,
+                        ),
+                        GestureDetector(
+                          child: _currentIndex.toString().contains('4')
+                              ? Text(
+                                  'ร่วมสอนกับเรา',
+                                  style: TextStyle(
+                                      color: Color.fromRGBO(255, 222, 39, 1),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w700),
+                                )
+                              : Text(
+                                  'ร่วมสอนกับเรา',
                                   style: TextStyle(
                                       color: Colors.white.withOpacity(0.7),
                                       fontSize: 14,
@@ -203,18 +216,18 @@ class _HomeState extends State<Home> {
                           )
                         : Text(''),
                   ),
-                  // Container(
-                  //   margin: EdgeInsets.only(top: 125),
-                  //   child: _currentIndex.toString().contains('1')
-                  //       ? BoxSearch()
-                  //       : Text(''),
-                  // ),
-                  // Container(
-                  //   margin: EdgeInsets.only(top: 125),
-                  //   child: _currentIndex.toString().contains('2')
-                  //       ? SearchMyCourse()
-                  //       : Text(''),
-                  // ),
+                  Container(
+                    margin: EdgeInsets.only(top: 125),
+                    child: _currentIndex.toString().contains('1')
+                        ? BoxSearch()
+                        : Text(''),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 125),
+                    child: _currentIndex.toString().contains('2')
+                        ? SearchMyCourse()
+                        : Text(''),
+                  ),
                   // Container(
                   //   margin: EdgeInsets.only(top: 125),
                   //   child: _currentIndex.toString().contains('3')

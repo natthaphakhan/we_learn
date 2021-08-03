@@ -15,6 +15,7 @@ class AllNews extends StatefulWidget {
 
 class _AllNewsState extends State<AllNews> {
   bool valueBox1 = false;
+  bool tapsearch = false;
   var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -280,7 +281,7 @@ class _AllNewsState extends State<AllNews> {
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.fromLTRB(
-                                            28,30, 0, 7),
+                                            28, 30, 0, 7),
                                         child: Text(
                                           'เรียงลำดับตาม',
                                           style: TextStyle(
@@ -321,7 +322,6 @@ class _AllNewsState extends State<AllNews> {
                                           ],
                                         ),
                                       ),
-                                      
                                       Padding(
                                         padding: const EdgeInsets.fromLTRB(
                                             28, 40, 28, 15),
@@ -366,8 +366,52 @@ class _AllNewsState extends State<AllNews> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 15.5, 0, 0),
-                  child: BoxSearchNews(),
+                  child: GestureDetector(
+                      onDoubleTap: () {
+                        setState(() {
+                          if (tapsearch == true) {
+                            tapsearch = false;
+                          } else {
+                            tapsearch = true;
+                          }
+                        });
+                      },
+                      child: BoxSearchNews()),
                 ),
+                tapsearch == true
+                    ? Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 20, 0, 15),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(28, 5, 5, 0),
+                              child: Icon(
+                                Icons.article_outlined,
+                                size: 20,
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'ผลการค้นหา ‘ถ่ายภาพ’',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                                Text(
+                                  'ค้นพบ 8 รายการ',
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
+                    : Text(''),
                 Expanded(
                   child: Container(
                     child: ListView(

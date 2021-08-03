@@ -14,7 +14,8 @@ class AllCourse extends StatefulWidget {
 
 class _AllCourseState extends State<AllCourse> {
   bool valueBox1 = false;
-var scaffoldKey = GlobalKey<ScaffoldState>();
+  bool tapsearch = false;
+  var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,7 +29,7 @@ var scaffoldKey = GlobalKey<ScaffoldState>();
               title: Padding(
                 padding: const EdgeInsets.only(left: 28),
                 child: GestureDetector(
-                  onTap: () => scaffoldKey.currentState!.openDrawer(),
+                    onTap: () => scaffoldKey.currentState!.openDrawer(),
                     child: Image.asset('assets/menu_line_purple.png')),
               ),
               actions: [
@@ -235,9 +236,13 @@ var scaffoldKey = GlobalKey<ScaffoldState>();
                                                     EdgeInsets.only(left: 20),
                                                 child: Row(
                                                   children: [
-                                                    GestureDetector(onTap: (){
-                                                      Navigator.pop(context);
-                                                    },child: Image.asset('assets/x.png')),
+                                                    GestureDetector(
+                                                        onTap: () {
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                        child: Image.asset(
+                                                            'assets/x.png')),
                                                     Padding(
                                                       padding: EdgeInsets.only(
                                                           left: 120),
@@ -621,8 +626,52 @@ var scaffoldKey = GlobalKey<ScaffoldState>();
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 15.5, 0, 0),
-                  child: BoxSearch(),
+                  child: GestureDetector(
+                      onDoubleTap: () {
+                        setState(() {
+                          if (tapsearch == true) {
+                            tapsearch = false;
+                          } else {
+                            tapsearch = true;
+                          }
+                        });
+                      },
+                      child: BoxSearch()),
                 ),
+                tapsearch == true
+                    ? Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 20, 0, 15),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(28, 5, 5, 0),
+                              child: Icon(
+                                Icons.article_outlined,
+                                size: 20,
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'ผลการค้นหา ‘ถ่ายภาพ’',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                                Text(
+                                  'ค้นพบ 8 รายการ',
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
+                    : Text(''),
                 Expanded(
                   child: Container(
                     child: ListView.builder(
@@ -637,8 +686,7 @@ var scaffoldKey = GlobalKey<ScaffoldState>();
                   ),
                 )
               ],
-            )
-            ),
+            )),
       ),
     );
   }
