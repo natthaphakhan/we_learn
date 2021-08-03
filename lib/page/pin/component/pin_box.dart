@@ -28,8 +28,8 @@ class _PinBoxState extends State<PinBox> {
           boxShadows: [
             BoxShadow(color: Colors.grey),
             BoxShadow(
-              color: Colors.grey[100]!,
-              spreadRadius: -2,
+              color: Colors.grey[50]!,
+              spreadRadius: -0.8,
               blurRadius: 3,
             )
           ],

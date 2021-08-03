@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:we_learn/page/all_course/all_course.dart';
+import 'package:we_learn/page/all_news/all_news.dart';
 
 import 'component/course_slide.dart';
 import 'component/news_slide.dart';
@@ -56,7 +57,12 @@ class _RecommendState extends State<Recommend> {
                 child: SizedBox(),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AllNews()),
+                  );
+                },
                 child: Text(
                   'ดูทั้งหมด',
                   style: TextStyle(

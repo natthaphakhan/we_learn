@@ -1,32 +1,20 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:we_learn/page/in_news/in_news.dart';
 
-class NewsSlide extends StatefulWidget {
-  final List list = [
-    'assets/news_1.png',
-    'assets/news_2.png',
-    'assets/news_3.png',
-  ];
+class AllNewsCard extends StatefulWidget {
+  final String img;
+  const AllNewsCard({ Key? key ,required this.img}) : super(key: key);
 
   @override
-  _NewsSlideState createState() => _NewsSlideState();
+  _AllNewsCardState createState() => _AllNewsCardState();
 }
 
-class _NewsSlideState extends State<NewsSlide> {
-  CarouselController _controller = CarouselController();
-  int _current = 0;
-
+class _AllNewsCardState extends State<AllNewsCard> {
   @override
   Widget build(BuildContext context) {
-    List<Widget> card = NewsSlide()
-        .list
-        .map(
-          (i) => Container(
-            margin: EdgeInsets.symmetric(vertical: 10),
-            child: Container(
-              width: 232,
-              height: 262,
+    return Container(
+              width: 318,
+              height: 225,
               decoration: BoxDecoration(boxShadow: [
                 BoxShadow(
                     color: Color.fromRGBO(216, 216, 216, 0.7),
@@ -35,7 +23,7 @@ class _NewsSlideState extends State<NewsSlide> {
                     spreadRadius: -7)
               ]),
               child: GestureDetector(
-                onTap: () {
+                onTap: (){
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => InNews()),
@@ -55,8 +43,10 @@ class _NewsSlideState extends State<NewsSlide> {
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20)),
                           child: Image.asset(
-                            i,
-                            fit: BoxFit.fitWidth,
+                            widget.img,
+                            width: 317.5,
+                            height: 120,
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
@@ -89,45 +79,6 @@ class _NewsSlideState extends State<NewsSlide> {
                   ),
                 ),
               ),
-            ),
-          ),
-        )
-        .toList();
-
-    return Column(
-      children: [
-        CarouselSlider(
-          items: card,
-          options: CarouselOptions(
-              viewportFraction: 0.67,
-              height: 262,
-              enableInfiniteScroll: true,
-              autoPlay: false,
-              enlargeCenterPage: false,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  _current = index;
-                });
-              }),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: card.asMap().entries.map((entry) {
-            return GestureDetector(
-                onTap: () => _controller.animateToPage(entry.key),
-                child: Container(
-                  width: 10.0,
-                  height: 10.0,
-                  margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: _current == entry.key
-                          ? Color.fromRGBO(111, 116, 183, 1)
-                          : Colors.grey.withOpacity(0.3)),
-                ));
-          }).toList(),
-        ),
-      ],
-    );
+            );
   }
 }
