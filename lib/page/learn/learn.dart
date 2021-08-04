@@ -3,6 +3,7 @@ import 'package:we_learn/page/learn/component/course.dart';
 import 'package:we_learn/page/learn/component/download.dart';
 import 'package:we_learn/page/learn/component/note.dart';
 import 'package:we_learn/page/learn/component/talk.dart';
+import 'package:we_learn/page/learn/component/test.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class Learn extends StatefulWidget {
@@ -14,7 +15,16 @@ class Learn extends StatefulWidget {
 
 class _LearnState extends State<Learn> {
   int corrent = 0;
-  List<Widget> part = [Note(), CoursePart(), Download(), Talk()];
+  bool openslide = false;
+
+  List<Widget> part = [
+    Note(),
+    CoursePart(),
+    Download(),
+    Talk(),
+    Test()
+  ];
+
   YoutubePlayerController _controller = YoutubePlayerController(
     initialVideoId: YoutubePlayer.convertUrlToId(
             "https://www.youtube.com/watch?v=eD2xFQlDS0o")
@@ -87,37 +97,97 @@ class _LearnState extends State<Learn> {
               showVideoProgressIndicator: true,
               progressIndicatorColor: Color.fromRGBO(111, 116, 183, 1),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.arrow_back_ios_rounded),
-                  Expanded(child: SizedBox()),
-                  Text(
-                      'ตอนที่ 1.2 ความสำคัญของการเรียนรู้และ\nยอมรับความแตกต่างในการทำงาน'),
-                  Expanded(child: SizedBox()),
-                  Icon(Icons.arrow_forward_ios_rounded),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              child: Row(
-                children: [
-                  Expanded(child: SizedBox()),
-                  Icon(
-                    Icons.visibility,
-                    color: Colors.green,
-                    size: 16,
-                  ),
-                  Text(
-                    '  เปิดสไลด์',
-                    style: TextStyle(color: Colors.green),
-                  ),
-                ],
-              ),
-            ),
+            openslide == false
+                ? Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 25, horizontal: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.arrow_back_ios_rounded),
+                            Expanded(child: SizedBox()),
+                            Text(
+                                'ตอนที่ 1.2 ความสำคัญของการเรียนรู้และ\nยอมรับความแตกต่างในการทำงาน'),
+                            Expanded(child: SizedBox()),
+                            Icon(Icons.arrow_forward_ios_rounded),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 15),
+                        child: Row(
+                          children: [
+                            Expanded(child: SizedBox()),
+                            Icon(
+                              Icons.visibility,
+                              color: Colors.green,
+                              size: 16,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  openslide = true;
+                                });
+                              },
+                              child: Text(
+                                '  เปิดสไลด์',
+                                style: TextStyle(color: Colors.green),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  )
+                : Column(children: [
+                    Image.asset('assets/slide.png'),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 15),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.sync,
+                            color: Colors.green,
+                            size: 18,
+                          ),
+                          Text('Sync Slide',
+                              style: TextStyle(color: Colors.green)),
+                          Expanded(child: SizedBox()),
+                          Icon(
+                            Icons.visibility_off,
+                            color: Colors.green,
+                            size: 16,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                openslide = false;
+                              });
+                            },
+                            child: Text(
+                              '  ปิดสไลด์',
+                              style: TextStyle(color: Colors.green),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.arrow_back_ios_rounded),
+                        Expanded(child: SizedBox()),
+                        Text(
+                            'ตอนที่ 1.2 ความสำคัญของการเรียนรู้และ\nยอมรับความแตกต่างในการทำงาน'),
+                        Expanded(child: SizedBox()),
+                        Icon(Icons.arrow_forward_ios_rounded),
+                      ],
+                    ),
+                  ]),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               child: Container(
@@ -182,6 +252,23 @@ class _LearnState extends State<Learn> {
                       },
                       child: Text(
                         'สนทนา',
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: corrent == 3
+                                ? Color.fromRGBO(111, 116, 183, 1)
+                                : Colors.grey),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setpage(4);
+                      },
+                      child: Text(
+                        'ข้อสอบ',
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
