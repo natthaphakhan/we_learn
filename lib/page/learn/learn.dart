@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:we_learn/launcher.dart';
 import 'package:we_learn/page/learn/component/course.dart';
 import 'package:we_learn/page/learn/component/download.dart';
 import 'package:we_learn/page/learn/component/note.dart';
@@ -56,7 +57,10 @@ class _LearnState extends State<Learn> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.pop(context);
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
+                  );
                   },
                   child: Icon(
                     Icons.arrow_back_ios_rounded,

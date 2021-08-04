@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:we_learn/page/all_course/component/drop_down_filter.dart';
+import 'package:we_learn/page/in_course/in_course.dart';
 
 class MyCourse extends StatefulWidget {
   @override
@@ -489,10 +490,10 @@ class CourseProgress extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(builder: (context) => Video()),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => InCourse()),
+        );
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 28),

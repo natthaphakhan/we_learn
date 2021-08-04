@@ -1,17 +1,5 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:http/http.dart' as http;
 import 'package:we_learn/page/search/component/card_search.dart';
-
-bool isSearch = false;
-
-// กำหนดรูปแบบข้อมูลที่เราจะดึงมาจาก api
-class Api {
-  final int id; // กำหนดชนิด
-  Api(this.id);
-}
 
 class Search extends StatefulWidget {
   @override
@@ -19,66 +7,87 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-  // ดึงข้อมูลจาก api
-  Future<List<Api>> _getApiData() async {
-    var data = await http.get(
-      Uri.parse(
-          'https://jsonplaceholder.typicode.com/photos'), //  url ของ api ที่เราจะดึงข้อมูล
-    );
-    // ignore: unused_local_variable
-    var jsonData = json.decode(data.body); // แปลงข้อมูล
-    List<Api> api = []; // ใส่ใน array
-    return api;
-  }
-
+  bool isSearch = false;
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _getApiData(),
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
-        if (snapshot.data == null) {
-          return Center(
-            child: const SpinKitChasingDots(
-              color: Color.fromRGBO(111, 116, 183, 1),
-            ),
-          );
-        } else {
-          return Container(
-              margin: EdgeInsets.symmetric(horizontal: 28, vertical: 0),
-              child: isSearch == false
-                  ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              'การค้นหายอดนิยม',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 16),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        BTPopword(),
-                      ],
-                    )
-                  : Expanded(
-                      child: Container(
-                        child: ListView.builder(
-                          itemBuilder: (context, i) {
-                            return Padding(
-                              padding: const EdgeInsets.fromLTRB(28, 26, 28, 0),
-                              child: SearchCourseCard(),
-                            );
-                          },
-                          itemCount: 10,
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 28, vertical: 0),
+      child: isSearch == false
+          ? Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'การค้นหายอดนิยม',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                GestureDetector(
+                    onDoubleTap: () {
+                      setState(() {
+                        if (isSearch == true) {
+                          isSearch = false;
+                        } else {
+                          isSearch = true;
+                        }
+                      });
+                    },
+                    child: BTPopword()),
+              ],
+            )
+          : Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 20, 0, 15),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 5, 5, 0),
+                        child: Icon(
+                          Icons.article_outlined,
+                          size: 20,
                         ),
                       ),
-                    ));
-        }
-      },
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'ผลการค้นหา ‘ถ่ายภาพ’',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.w700),
+                          ),
+                          Text(
+                            'ค้นพบ 8 รายการ',
+                            style: TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    child: ListView.builder(
+                      itemBuilder: (context, i) {
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 25),
+                          child: SearchCourseCard(),
+                        );
+                      },
+                      itemCount: 10,
+                    ),
+                  ),
+                ),
+              ],
+            ),
     );
   }
 }
@@ -159,15 +168,7 @@ class _BTPopwordState extends State<BTPopword> {
               (i) => Container(
                 margin: EdgeInsets.symmetric(horizontal: 5),
                 child: OutlinedButton(
-                  onPressed: () {
-                    // setState(() {
-                    //   if (isSearch == true) {
-                    //     isSearch = false;
-                    //   } else {
-                    //     isSearch = true;
-                    //   }
-                    // });
-                  },
+                  onPressed: () {},
                   style: OutlinedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0)),

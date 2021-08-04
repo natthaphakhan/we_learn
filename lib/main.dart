@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:we_learn/launcher.dart';
 import 'package:we_learn/page/in_course/in_course.dart';
 import 'package:we_learn/page/in_test/in_test.dart';
 import 'package:we_learn/page/learn/learn.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'NotoSansThai'),
       debugShowCheckedModeBanner: false,
-      home: InTest(),
+      home: SignIn(),
       // home: Learn(),
     );
   }
