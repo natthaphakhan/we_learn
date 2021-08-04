@@ -31,7 +31,7 @@ class _LearnState extends State<Learn> {
             "https://www.youtube.com/watch?v=eD2xFQlDS0o")
         .toString(),
     flags: YoutubePlayerFlags(
-      autoPlay: true,
+      autoPlay: false,
       mute: true,
     ),
   );

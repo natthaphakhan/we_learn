@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:we_learn/page/check_result/check_result.dart';
+import 'package:we_learn/page/course_from_me/course_from_me.dart';
+import 'package:we_learn/page/faq/faq.dart';
 import 'package:we_learn/page/my_course/my_course.dart';
 import 'package:we_learn/page/my_list/my_list.dart';
+import 'package:we_learn/page/my_profile/my_profile.dart';
+import 'package:we_learn/page/overall/overall.dart';
 import 'package:we_learn/page/recommend/recommend.dart';
 import 'package:we_learn/page/search/search.dart';
 
@@ -249,135 +254,197 @@ class _HomeState extends State<Home> {
             drawer: Drawer(
               child: ListView(
                 children: [
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ClipOval(
-                        child: Image.network(
-                          'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2F0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-                          height: 100,
-                          width: 100,
-                          fit: BoxFit.cover,
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 130, 0, 0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/profile.png',
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text('มัลธนา พจนวราภรณ์',
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Color.fromRGBO(111, 116, 183, 1),
+                                    fontWeight: FontWeight.bold)),
+                            Text(
+                              'วิทยากร',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.grey,
+                              ),
+                            )
+                          ],
                         ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text('ณัฐปคัลภ์ ขุนจันทร์',
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Color.fromRGBO(111, 116, 183, 1),
-                              fontWeight: FontWeight.bold)),
-                      Text(
-                        'สมาชิก',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.home_outlined,
-                            color: Color.fromRGBO(111, 116, 183, 1),
-                          )),
-                      TextButton(
-                        child: Text('หน้าแรก',
-                            style: TextStyle(
-                                color: Color.fromRGBO(111, 116, 183, 1),
-                                fontSize: 15)),
-                        onPressed: () {
-                          Route route =
-                              MaterialPageRoute(builder: (context) => Home());
-                          Navigator.pushReplacement(context, route);
+                        SizedBox(
+                          height: 25,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 90),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Image.asset('assets/home.png'),
+                                  TextButton(
+                                    child: Text('หน้าหลัก',
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(
+                                                111, 116, 183, 1),
+                                            fontSize: 15)),
+                                    onPressed: () {
+                                      Route route = MaterialPageRoute(
+                                          builder: (context) => Home());
+                                      Navigator.pushReplacement(context, route);
 
-                          scaffoldKey.currentState!.openEndDrawer();
-                        },
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.settings_outlined,
-                            color: Color.fromRGBO(111, 116, 183, 1),
-                          )),
-                      TextButton(
-                        child: Text('แก้ไขโปรไฟล์',
-                            style: TextStyle(
-                                color: Color.fromRGBO(111, 116, 183, 1),
-                                fontSize: 15)),
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.question_answer_outlined,
-                            color: Color.fromRGBO(111, 116, 183, 1),
-                          )),
-                      TextButton(
-                        child: Text('คำถามที่พบบ่อย',
-                            style: TextStyle(
-                                color: Color.fromRGBO(111, 116, 183, 1),
-                                fontSize: 15)),
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.translate_outlined,
-                            color: Color.fromRGBO(111, 116, 183, 1),
-                          )),
-                      TextButton(
-                        child: Text('ภาษา',
-                            style: TextStyle(
-                                color: Color.fromRGBO(111, 116, 183, 1),
-                                fontSize: 15)),
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.exit_to_app_outlined,
-                            color: Colors.red,
-                          )),
-                      TextButton(
-                        child: Text('ออกจากระบบ',
-                            style: TextStyle(
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15)),
-                        onPressed: () {
-                          Route route =
-                              MaterialPageRoute(builder: (context) => SignIn());
-                          Navigator.pushReplacement(context, route);
+                                      scaffoldKey.currentState!.openEndDrawer();
+                                    },
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset('assets/person.png'),
+                                  TextButton(
+                                    child: Text('บัญชีของฉัน',
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(
+                                                111, 116, 183, 1),
+                                            fontSize: 15)),
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => MyProfile()),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset('assets/overall.png'),
+                                  TextButton(
+                                    child: Text('ภาพรวม',
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(
+                                                111, 116, 183, 1),
+                                            fontSize: 15)),
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => OverAll()),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset('assets/layers.png'),
+                                  TextButton(
+                                    child: Text('คอร์สเรียนจากฉัน',
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(
+                                                111, 116, 183, 1),
+                                            fontSize: 15)),
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                CourseFrowmMe()),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset('assets/clock.png'),
+                                  TextButton(
+                                    child: Text('ติดตามผล',
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(
+                                                111, 116, 183, 1),
+                                            fontSize: 15)),
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                CheckResult()),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset('assets/question-circle.png'),
+                                  TextButton(
+                                    child: Text('คำถามที่พบบ่อย',
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(
+                                                111, 116, 183, 1),
+                                            fontSize: 15)),
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Faq()),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset(
+                                      'assets/Icon material-translate.png'),
+                                  TextButton(
+                                    child: Text('ภาษา',
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(
+                                                111, 116, 183, 1),
+                                            fontSize: 15)),
+                                    onPressed: () {},
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset('assets/sign_out.png'),
+                                  TextButton(
+                                    child: Text('ออกจากระบบ',
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(
+                                                111, 116, 183, 1),
+                                            fontSize: 15)),
+                                    onPressed: () {
+                                      Route route = MaterialPageRoute(
+                                          builder: (context) => SignIn());
+                                      Navigator.pushReplacement(context, route);
 
-                          scaffoldKey.currentState!.openEndDrawer();
-                        },
-                      ),
-                    ],
+                                      scaffoldKey.currentState!.openEndDrawer();
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
