@@ -22,7 +22,7 @@ class _NoteState extends State<Note> {
                 width: 320,
                 child: TextField(
                   keyboardType: TextInputType.multiline,
-                  maxLines: 5,
+                  maxLines: 3,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
