@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:we_learn/page/in_course/component/exp_tile.dart';
 import 'package:we_learn/page/in_course/component/reccourse.dart';
+import 'package:we_learn/page/learn/learn.dart';
 import 'package:we_learn/page/pay/pay.dart';
 import 'package:we_learn/page/sign_in/sign_in.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../launcher.dart';
 
-class InCourse extends StatefulWidget {
-  const InCourse({Key? key}) : super(key: key);
+class InCourse2 extends StatefulWidget {
+  const InCourse2({Key? key}) : super(key: key);
 
   @override
-  _InCourseState createState() => _InCourseState();
+  _InCourse2State createState() => _InCourse2State();
 }
 
-class _InCourseState extends State<InCourse> {
+class _InCourse2State extends State<InCourse2> {
   var scaffoldKey = GlobalKey<ScaffoldState>();
   YoutubePlayerController _controller = YoutubePlayerController(
     initialVideoId: YoutubePlayer.convertUrlToId(
@@ -630,36 +631,21 @@ class _InCourseState extends State<InCourse> {
             height: 50,
             color: Color.fromRGBO(111, 116, 183, 1),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: InkWell(
-                    onTap: () {},
-                    child: Text(
-                      '฿ 9,999',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: SizedBox(),
-                ),
                 Padding(
                   padding: const EdgeInsets.only(right: 20),
                   child: InkWell(
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Pay()),
+                        MaterialPageRoute(builder: (context) => Learn()),
                       );
                     },
                     child: Text(
-                      'สมัครเรียน',
+                      'เข้าเรียน',
                       style: TextStyle(
-                          color: Colors.yellow[700],
+                          color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
                   ),

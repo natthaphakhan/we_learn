@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:we_learn/page/in_course/in_course.dart';
+import 'package:we_learn/page/learn/learn.dart';
 // import 'package:we_learn/page/pin/pin_1.dart';
 import 'package:we_learn/page/sign_in/sign_in.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(fontFamily: 'NotoSansThai'),
       debugShowCheckedModeBanner: false,
       // home: SignIn(),
-      home: InCourse(),
+      home: Learn(),
     );
   }
 }
