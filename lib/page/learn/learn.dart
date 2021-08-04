@@ -272,7 +272,7 @@ class _LearnState extends State<Learn> {
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: corrent == 3
+                            color: corrent == 4
                                 ? Color.fromRGBO(111, 116, 183, 1)
                                 : Colors.grey),
                       ),
