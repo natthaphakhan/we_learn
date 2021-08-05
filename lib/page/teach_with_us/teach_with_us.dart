@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:we_learn/page/register_teacher/register_teacher.dart';
 
 class TechWithUs extends StatefulWidget {
   const TechWithUs({Key? key}) : super(key: key);
@@ -43,10 +44,10 @@ class _TechWithUsState extends State<TechWithUs> {
                   height: 41,
                   child: ElevatedButton(
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => Home()),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => RegisTeacher()),
+                      );
                     },
                     child: Center(
                       child: Text(
