@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:we_learn/page/all_course/all_course.dart';
 import 'package:we_learn/page/check_result/check_result.dart';
+import 'package:we_learn/page/contact/contact.dart';
 import 'package:we_learn/page/course_from_me/course_from_me.dart';
 import 'package:we_learn/page/faq/faq.dart';
 import 'package:we_learn/page/in_course/component/exp_tile.dart';
@@ -208,6 +209,25 @@ class _InCourse2State extends State<InCourse2> {
                             ),
                           ],
                         ),
+                        Row(
+                                children: [
+                                  Image.asset('assets/telephone.png'),
+                                  TextButton(
+                                    child: Text('ติดต่อเรา',
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(
+                                                111, 116, 183, 1),
+                                            fontSize: 15)),
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Contact()),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
                         Row(
                           children: [
                             Image.asset('assets/Icon material-translate.png'),
