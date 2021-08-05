@@ -10,8 +10,12 @@ class OverAll extends StatefulWidget {
 class _OverAllState extends State<OverAll> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child:Text('over all')
+    return SafeArea(
+      child: Scaffold(
+        child: Container(
+          child:Text('over all')
+        ),
+      ),
     );
   }
 }
