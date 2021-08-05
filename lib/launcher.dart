@@ -6,6 +6,7 @@ import 'package:we_learn/page/faq/faq.dart';
 import 'package:we_learn/page/my_course/my_course.dart';
 import 'package:we_learn/page/my_list/my_list.dart';
 import 'package:we_learn/page/my_profile/my_profile.dart';
+import 'package:we_learn/page/noti/noti.dart';
 import 'package:we_learn/page/overall/overall.dart';
 import 'package:we_learn/page/recommend/recommend.dart';
 import 'package:we_learn/page/search/search.dart';
@@ -198,9 +199,9 @@ class _HomeState extends State<Home> {
                         ),
                         IconButton(
                           onPressed: () {
-                            //   Route route =
-                            //     MaterialPageRoute(builder: (context) => Noti());
-                            // Navigator.push(context, route);
+                              Route route =
+                                MaterialPageRoute(builder: (context) => Noti());
+                            Navigator.push(context, route);
                           },
                           icon: Icon(Icons.notifications_outlined),
                           color: Colors.white,

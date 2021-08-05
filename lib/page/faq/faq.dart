@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:we_learn/page/my_profile/component/dropbox.dart';
+import 'package:we_learn/page/noti/noti.dart';
 
 class Faq extends StatefulWidget {
   const Faq({Key? key}) : super(key: key);
@@ -47,7 +48,12 @@ class _FaqState extends State<Faq> {
               Padding(
                 padding: const EdgeInsets.only(right: 28),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Noti()),
+                    );
+                  },
                   child: Icon(
                     Icons.notifications_outlined,
                     color: Color.fromRGBO(111, 116, 183, 1),
@@ -61,7 +67,9 @@ class _FaqState extends State<Faq> {
             child: Column(
               children: [
                 DpBox(Colors.black, 'กดดาวน์โหลดไฟล์เอกสารตรงไหนเหรอคะ', 320),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Material(
                   elevation: 1,
                   borderRadius: BorderRadius.circular(5),

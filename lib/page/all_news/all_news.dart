@@ -6,6 +6,7 @@ import 'package:we_learn/page/contact/contact.dart';
 import 'package:we_learn/page/course_from_me/course_from_me.dart';
 import 'package:we_learn/page/faq/faq.dart';
 import 'package:we_learn/page/my_profile/my_profile.dart';
+import 'package:we_learn/page/noti/noti.dart';
 import 'package:we_learn/page/overall/overall.dart';
 import 'package:we_learn/page/sign_in/sign_in.dart';
 
@@ -43,7 +44,12 @@ class _AllNewsState extends State<AllNews> {
                 Padding(
                   padding: const EdgeInsets.only(right: 28),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Noti()),
+                      );
+                    },
                     child: Icon(
                       Icons.notifications_outlined,
                       color: Color.fromRGBO(111, 116, 183, 1),
@@ -208,7 +214,8 @@ class _AllNewsState extends State<AllNews> {
                                     },
                                   ),
                                 ],
-                              ),Row(
+                              ),
+                              Row(
                                 children: [
                                   Image.asset('assets/telephone.png'),
                                   TextButton(

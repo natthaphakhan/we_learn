@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:we_learn/page/noti/noti.dart';
 import 'package:we_learn/page/overall/overall_my_cer.dart';
 import 'package:we_learn/page/overall/overall_my_course.dart';
 
@@ -50,7 +51,12 @@ class _OverAllState extends State<OverAll> {
             Padding(
               padding: const EdgeInsets.only(right: 28),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Noti()),
+                  );
+                },
                 child: Icon(
                   Icons.notifications_outlined,
                   color: Color.fromRGBO(111, 116, 183, 1),

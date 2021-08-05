@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:we_learn/page/check_result/result1.dart';
 import 'package:we_learn/page/check_result/result2.dart';
+import 'package:we_learn/page/noti/noti.dart';
 
 class CheckResult extends StatefulWidget {
   const CheckResult({Key? key}) : super(key: key);
@@ -49,7 +50,12 @@ class _CheckResultState extends State<CheckResult> {
             Padding(
               padding: const EdgeInsets.only(right: 28),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Noti()),
+                  );
+                },
                 child: Icon(
                   Icons.notifications_outlined,
                   color: Color.fromRGBO(111, 116, 183, 1),
@@ -95,7 +101,7 @@ class _CheckResultState extends State<CheckResult> {
                     ),
                   ),
                   GestureDetector(
-                    onTap:(){
+                    onTap: () {
                       setState(() {
                         onRe2 = true;
                       });
