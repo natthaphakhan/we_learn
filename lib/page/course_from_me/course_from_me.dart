@@ -67,40 +67,169 @@ class _CourseFrowmMeState extends State<CourseFrowmMe> {
                   ),
                 ],
               ),
-              SizedBox(
-                width: 154,
-                height: 34,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Center(
-                    child: Text(
-                      'สร้างคอร์ส',
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: SizedBox(
+                  width: 154,
+                  height: 34,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Center(
+                      child: Text(
+                        'สร้างคอร์ส',
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500),
+                      ),
                     ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    primary: Color.fromRGBO(111, 116, 183, 1),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(33.0),
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromRGBO(111, 116, 183, 1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(33.0),
+                      ),
                     ),
                   ),
                 ),
               ),
-              Row(
-                children: [
-                  Icon(Icons.list),
-                  Text('รายการ')
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  children: [Icon(Icons.article_outlined), Text(' รายการ')],
+                ),
               ),
-              Row(
-                children: [
-                  Icon(Icons.search),
-                  Text('data')
-                ],
-              )
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 5, 70),
+                      child: Icon(Icons.search),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'การสื่อสารเพื่อธุรกิจและการเจรจาต่อรอง\nCommunication for business and Negotiation',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.online_prediction_outlined,
+                              color: Colors.grey,
+                            ),
+                            Text(
+                              '  คอร์สเรียนออนไลน์',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.warning_amber_outlined,
+                              color: Colors.grey,
+                            ),
+                            Text(
+                              '  รอการอนุมัติ',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 5, 70),
+                      child: Icon(Icons.search),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'การสื่อสารเพื่อธุรกิจและการเจรจาต่อรอง\nCommunication for business and Negotiation',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.online_prediction_outlined,
+                              color: Colors.grey,
+                            ),
+                            Text(
+                              '  คอร์สเรียนออนไลน์',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.warning_amber_outlined,
+                              color: Colors.grey,
+                            ),
+                            Text(
+                              '  อนุมัติแล้ว',
+                              style: TextStyle(color: Colors.green),
+                            ),
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 5, 70),
+                      child: Icon(Icons.search),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'การสื่อสารเพื่อธุรกิจและการเจรจาต่อรอง\nCommunication for business and Negotiation',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.online_prediction_outlined,
+                              color: Colors.grey,
+                            ),
+                            Text(
+                              '  คอร์สเรียนออนไลน์',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.warning_amber_outlined,
+                              color: Colors.grey,
+                            ),
+                            Text(
+                              '  ไม่ได้รับการอนุมัติ',
+                              style: TextStyle(color: Colors.red),
+                            ),
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),
