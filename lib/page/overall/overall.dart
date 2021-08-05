@@ -1,6 +1,8 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:we_learn/page/overall/overall_my_cer.dart';
+import 'package:we_learn/page/overall/overall_my_course.dart';
 
 class OverAll extends StatefulWidget {
   const OverAll({Key? key}) : super(key: key);
@@ -65,48 +67,64 @@ class _OverAllState extends State<OverAll> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Image.asset('assets/movie.png'),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(5, 8, 0, 0),
-                          child: Text(
-                            '5',
-                            style: TextStyle(
-                                fontSize: 60,
-                                color: Color.fromRGBO(111, 116, 183, 1)),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => OvMyC()),
+                    );
+                  },
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Image.asset('assets/movie.png'),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(5, 8, 0, 0),
+                            child: Text(
+                              '5',
+                              style: TextStyle(
+                                  fontSize: 60,
+                                  color: Color.fromRGBO(111, 116, 183, 1)),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Text('กำลังศึกษาอยู่',
-                        style: TextStyle(fontSize: 16, color: Colors.grey))
-                  ],
+                        ],
+                      ),
+                      Text('กำลังศึกษาอยู่',
+                          style: TextStyle(fontSize: 16, color: Colors.grey))
+                    ],
+                  ),
                 ),
                 SizedBox(
                   width: 30,
                 ),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Image.asset('assets/cer.png'),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(5, 8, 0, 0),
-                          child: Text(
-                            '10',
-                            style: TextStyle(
-                                fontSize: 60,
-                                color: Color.fromRGBO(111, 116, 183, 1)),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => OvMyCer()),
+                    );
+                  },
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Image.asset('assets/cer.png'),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(5, 8, 0, 0),
+                            child: Text(
+                              '10',
+                              style: TextStyle(
+                                  fontSize: 60,
+                                  color: Color.fromRGBO(111, 116, 183, 1)),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Text('ประกาศนียบัตร',
-                        style: TextStyle(fontSize: 16, color: Colors.grey))
-                  ],
+                        ],
+                      ),
+                      Text('ประกาศนียบัตร',
+                          style: TextStyle(fontSize: 16, color: Colors.grey))
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -164,7 +182,9 @@ class _OverAllState extends State<OverAll> {
                 ],
               ),
             ),
-            SizedBox(height: 80,),
+            SizedBox(
+              height: 80,
+            ),
             Image.asset('assets/bottom_overall.png')
           ],
         ),
