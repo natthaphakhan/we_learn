@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:we_learn/page/activitie_test/fisrt_at_page.dart';
 import 'package:we_learn/page/in_test/in_test.dart';
 
 class Test extends StatefulWidget {
@@ -163,7 +164,12 @@ class _TestState extends State<Test> {
           ),
         ),
         InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => FirstST()),
+            );
+          },
           child: Text(
             '>>> เปิดกิจกรรมข้อสอบ <<<',
             style: TextStyle(
