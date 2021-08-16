@@ -138,14 +138,41 @@ class _TestState extends State<Test> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: GestureDetector(
+    return Column(
+      children: [
+        Text(
+          '*** ปกติหน้านี้ไม่มี ทำเพื่อ Test เข้าหน้าข้อสอบเท่านั้น ***',
+          style: TextStyle(color: Colors.red),
+        ),
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 15),
+          child: InkWell(
             onTap: () {
               showDialog(
                 context: context,
                 builder: (BuildContext context) => _buildPopupDialog(context),
               );
             },
-            child: Text('>>> เปิดข้อสอบ <<<')));
+            child: Text(
+              '>>> เปิดข้อสอบ <<<',
+              style: TextStyle(
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline,
+                  fontSize: 20),
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () {},
+          child: Text(
+            '>>> เปิดกิจกรรมข้อสอบ <<<',
+            style: TextStyle(
+                color: Colors.blue,
+                decoration: TextDecoration.underline,
+                fontSize: 20),
+          ),
+        ),
+      ],
+    );
   }
 }
