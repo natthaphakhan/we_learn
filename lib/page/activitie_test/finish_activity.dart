@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:we_learn/page/activitie_test/in_at.dart';
+import 'package:we_learn/page/activitie_test/answer.dart';
 import 'package:we_learn/page/learn/learn.dart';
 
-class FirstST extends StatefulWidget {
-  const FirstST({Key? key}) : super(key: key);
+class FinishActivity extends StatefulWidget {
+  const FinishActivity({Key? key}) : super(key: key);
 
   @override
-  _FirstSTState createState() => _FirstSTState();
+  _FinishActivityState createState() => _FinishActivityState();
 }
 
-class _FirstSTState extends State<FirstST> {
+class _FinishActivityState extends State<FinishActivity> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,7 +24,11 @@ class _FirstSTState extends State<FirstST> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.pop(context);
+                    Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Learn()),
+                        );
                   },
                   child: Icon(
                     Icons.arrow_back_ios_rounded,
@@ -50,12 +54,12 @@ class _FirstSTState extends State<FirstST> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 50),
-                child: Image.asset('assets/test.png'),
+                child: Image.asset('assets/finish_test.png'),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 50),
                 child: Text(
-                  'กิจกรรมข้อสอบ',
+                  'ส่งคำตอบเรียบร้อย',
                   style: TextStyle(
                       color: Color.fromRGBO(111, 116, 183, 1),
                       fontWeight: FontWeight.bold,
@@ -65,7 +69,7 @@ class _FirstSTState extends State<FirstST> {
               Padding(
                 padding: const EdgeInsets.only(top: 30),
                 child: Text(
-                  'ตอนที่ 1.3 กิจกรรมข้อสอบ \nActivity: Rules and Procedures',
+                  'ตอนที่ 1.3 กิจกรรมข้อสอบ \nActivity: Rules and Procedures \n\nใช้เวลาทำข้อสอบ 00:40:19 นาที',
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -116,13 +120,6 @@ class _FirstSTState extends State<FirstST> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Text(
-                  'จำนวนข้อ: 10 ข้อ \nคะแนนเต็ม: 20 คะแนน \nระยะเวลาในการทำข้อสอบ: ไม่จำกัดเวลา \nจำนวนครั้งที่ให้ทำ: ไม่จำกัด \nวิธีการคิดคะแนน: สูงสุด',
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              Padding(
                 padding: const EdgeInsets.only(top: 50),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -140,7 +137,7 @@ class _FirstSTState extends State<FirstST> {
                           border: Border.all(color: Colors.grey),
                         ),
                         child: Center(
-                          child: Text('ข้ามก่อน'),
+                          child: Text('ทำข้อสอบใหม่'),
                         ),
                       ),
                     ),
@@ -150,7 +147,7 @@ class _FirstSTState extends State<FirstST> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => InActivitie()),
+                              builder: (context) => Answer()),
                         );
                       },
                       child: Container(
@@ -163,7 +160,7 @@ class _FirstSTState extends State<FirstST> {
                         ),
                         child: Center(
                           child: Text(
-                            'ทำข้อสอบ',
+                            'ดูเฉลย',
                             style: TextStyle(color: Colors.white),
                           ),
                         ),

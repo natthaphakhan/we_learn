@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:we_learn/page/activitie_test/finish_activity.dart';
 import 'package:we_learn/page/learn/learn.dart';
 
-class InActivitie extends StatefulWidget {
-  const InActivitie({Key? key}) : super(key: key);
+class Answer extends StatefulWidget {
+  const Answer({Key? key}) : super(key: key);
 
   @override
-  _InActivitieState createState() => _InActivitieState();
+  _AnswerState createState() => _AnswerState();
 }
 
 bool vl = false;
@@ -40,7 +40,7 @@ Widget popUpFinish(BuildContext context) {
                 },
                 child: Center(
                   child: Text(
-                    'ยังก่อน',
+                    'ย้อนกลับ',
                     style: TextStyle(
                         fontSize: 16,
                         color: Colors.black,
@@ -59,14 +59,13 @@ Widget popUpFinish(BuildContext context) {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pop(
                     context,
-                    MaterialPageRoute(builder: (context) => FinishActivity()),
                   );
                 },
                 child: Center(
                   child: Text(
-                    'ส่งเลย',
+                    'ออกจากเฉลย',
                     style: TextStyle(
                         fontSize: 16,
                         color: Colors.white,
@@ -88,7 +87,7 @@ Widget popUpFinish(BuildContext context) {
   );
 }
 
-class _InActivitieState extends State<InActivitie> {
+class _AnswerState extends State<Answer> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -219,17 +218,17 @@ class _InActivitieState extends State<InActivitie> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                  Text(
-                    'คำชี้แจง:',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  Text(
-                    ' วิธีจัดองค์ประกอบภาพให้สวยงามด้วย\n กฎการถ่ายภาพขั้นพื้นฐานประกอบไปด้วยอะไรบ้าง',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ]),
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'คำชี้แจง:',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Text(
+                        ' วิธีจัดองค์ประกอบภาพให้สวยงามด้วย\n กฎการถ่ายภาพขั้นพื้นฐานประกอบไปด้วยอะไรบ้าง',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ]),
               ),
               Container(
                 width: 320,
@@ -242,8 +241,8 @@ class _InActivitieState extends State<InActivitie> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'คำตอบของคุณ...',
-                    style: TextStyle(color: Colors.grey),
+                    '1. กฎสามส่วน\n2. เน้นความสมมาตร\n3. ใช้เส้นนำสายตา',
+                    style: TextStyle(color: Colors.green),
                   ),
                 ),
               ),
@@ -253,7 +252,8 @@ class _InActivitieState extends State<InActivitie> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                      },
                       child: Center(
                         child: Text(
                           'ย้อนกลับ',
@@ -273,15 +273,11 @@ class _InActivitieState extends State<InActivitie> {
                     SizedBox(width: 15),
                     ElevatedButton(
                       onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) =>
-                              popUpFinish(context),
-                        );
+                        Navigator.pop(context);
                       },
                       child: Center(
                         child: Text(
-                          'ส่งข้อสอบ',
+                          'ออกจากเฉลย',
                           style: TextStyle(
                               fontSize: 16,
                               color: Colors.white,
