@@ -419,24 +419,9 @@ class _MyCourseState extends State<MyCourse> {
               style: TextStyle(fontSize: 12),
             ),
           ),
-          CourseProgress(0.45, Colors.yellow[700]!, false),
-          Expanded(
-              child: Divider(
-            thickness: 1,
-            color: Colors.grey[300],
-          )),
-          CourseProgress(1.0, Colors.green, true),
-          Expanded(
-              child: Divider(
-            thickness: 1,
-            color: Colors.grey[300],
-          )),
-          CourseProgress(1.0, Colors.green, true),
-          Expanded(
-              child: Divider(
-            thickness: 1,
-            color: Colors.grey[300],
-          )),
+          AllCourseCard2(0.45, Colors.yellow[700]!, false),
+          AllCourseCard2(1.0, Colors.green, true),
+          AllCourseCard2(1.0, Colors.green, true),
         ],
       ),
     );
@@ -588,6 +573,142 @@ class CourseProgress extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class AllCourseCard2 extends StatefulWidget {
+  final double percen;
+  final Color color;
+  final bool complete;
+  AllCourseCard2(this.percen, this.color, this.complete);
+
+  @override
+  _AllCourseCard2State createState() => _AllCourseCard2State();
+}
+
+class _AllCourseCard2State extends State<AllCourseCard2> {
+  bool heartTap = false;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => InCourse()),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 20),
+        child: Container(
+          width: 319,
+          height: 269,
+          decoration: BoxDecoration(boxShadow: [
+            BoxShadow(
+                color: Color.fromRGBO(216, 216, 216, 0.7),
+                offset: Offset(0, 3),
+                blurRadius: 6,
+                spreadRadius: -7)
+          ]),
+          child: Card(
+            elevation: 0,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: 122,
+                  width: double.maxFinite,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
+                    child: Image.asset(
+                      'assets/img_course_1.jpeg',
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(13, 10, 13, 0),
+                  child: ListTile(
+                    minVerticalPadding: 0,
+                    contentPadding: EdgeInsets.zero,
+                    title: Text('Work With Diversity',
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w500)),
+                    subtitle: Text(
+                        'คิดต่างอย่างมีเหตุผลเพื่อต่อยอดความสำเร็จในองค์กร',
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w400)),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+                  child: LinearPercentIndicator(
+                    width: 285,
+                    animation: true,
+                    lineHeight: 10,
+                    animationDuration: 1000,
+                    percent: widget.percen,
+                    linearStrokeCap: LinearStrokeCap.roundAll,
+                    progressColor: widget.color,
+                  ),
+                ),
+                widget.complete == true
+                    ? Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 13),
+                        child: Row(
+                          children: [
+                            Text(
+                              ' สำเร็จการศึกษา',
+                              style: TextStyle(
+                                  color: Colors.green,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Expanded(
+                              child: SizedBox(),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    Icons.download,
+                                    size: 16,
+                                    color: Color.fromRGBO(111, 116, 183, 1),
+                                  ),
+                                  Text(
+                                    'ประกาศนียบัตร',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14,
+                                        color:
+                                            Color.fromRGBO(111, 116, 183, 1)),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    : Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 13),
+                        child: Text(
+                          ' กำลังศึกษา ${(widget.percen * 100)}%',
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.bold),
+                        ),
+                      )
+              ],
+            ),
+          ),
         ),
       ),
     );
