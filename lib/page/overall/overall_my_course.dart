@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:we_learn/page/noti/noti.dart';
+import 'package:we_learn/page/my_course/my_course.dart';
 
 class OvMyC extends StatefulWidget {
   const OvMyC({Key? key}) : super(key: key);
@@ -49,9 +50,9 @@ class _OvMyCState extends State<OvMyC> {
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Noti()),
-          );
+                    context,
+                    MaterialPageRoute(builder: (context) => Noti()),
+                  );
                 },
                 child: Icon(
                   Icons.notifications_outlined,
@@ -63,90 +64,25 @@ class _OvMyCState extends State<OvMyC> {
         ),
         body: Padding(
           padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: Row(
-                  children: [
-                    Text(
-                      'กำลังศึกษาอยู่ทั้งหมด 5 รายการ',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 10, 15),
-                      child: Icon(
-                        Icons.play_circle,
-                        color: Color.fromRGBO(111, 116, 183, 1),
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(
+            children: 
+              [Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: Row(
                       children: [
-                        Text('Time Management การบริหารจัดหารเวลา'),
                         Text(
-                          'เข้าร่วมบทเรียนแล้ว 50%',
+                          'กำลังศึกษาอยู่ทั้งหมด 5 รายการ',
                           style: TextStyle(color: Colors.grey),
                         ),
                       ],
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 10, 15),
-                      child: Icon(
-                        Icons.play_circle,
-                        color: Color.fromRGBO(111, 116, 183, 1),
-                      ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Time Management การบริหารจัดหารเวลา'),
-                        Text(
-                          'เข้าร่วมบทเรียนแล้ว 50%',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 10, 15),
-                      child: Icon(
-                        Icons.play_circle,
-                        color: Color.fromRGBO(111, 116, 183, 1),
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Time Management การบริหารจัดหารเวลา'),
-                        Text(
-                          'เข้าร่วมบทเรียนแล้ว 50%',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+                  ),
+                  AllCourseCard2(0.45, Colors.yellow[700]!, false),
+                  AllCourseCard2(0.45, Colors.yellow[700]!, false),
+                  AllCourseCard2(0.45, Colors.yellow[700]!, false),
+                ],
               ),
             ],
           ),

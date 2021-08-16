@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:we_learn/page/noti/noti.dart';
 import 'package:we_learn/page/overall/overall_my_cer.dart';
@@ -65,133 +63,136 @@ class _OverAllState extends State<OverAll> {
             )
           ],
         ),
-        body: Column(
+        body: ListView(
           children: [
-            SizedBox(
-              height: 100,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => OvMyC()),
-                    );
-                  },
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset('assets/movie.png'),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(5, 8, 0, 0),
-                            child: Text(
-                              '5',
-                              style: TextStyle(
-                                  fontSize: 60,
-                                  color: Color.fromRGBO(111, 116, 183, 1)),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Text('กำลังศึกษาอยู่',
-                          style: TextStyle(fontSize: 16, color: Colors.grey))
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: 30,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => OvMyCer()),
-                    );
-                  },
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset('assets/cer.png'),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(5, 8, 0, 0),
-                            child: Text(
-                              '10',
-                              style: TextStyle(
-                                  fontSize: 60,
-                                  color: Color.fromRGBO(111, 116, 183, 1)),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Text('ประกาศนียบัตร',
-                          style: TextStyle(fontSize: 16, color: Colors.grey))
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+            Container(
+              child: Column(
                 children: [
-                  Column(
-                    children: [
-                      Row(
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => OvMyC()),
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 50),
+                      child: Column(
                         children: [
-                          Image.asset('assets/score.png'),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(5, 8, 0, 0),
-                            child: Text(
-                              '725',
-                              style: TextStyle(
-                                  fontSize: 60,
-                                  color: Color.fromRGBO(111, 116, 183, 1)),
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset('assets/movie.png'),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(5, 8, 0, 0),
+                                child: Text(
+                                  '5',
+                                  style: TextStyle(
+                                      fontSize: 60,
+                                      color: Color.fromRGBO(111, 116, 183, 1)),
+                                ),
+                              ),
+                            ],
                           ),
+                          Text('กำลังศึกษาอยู่',
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.grey))
                         ],
                       ),
-                      Text('คะแนนสะสม',
-                          style: TextStyle(fontSize: 16, color: Colors.grey))
-                    ],
+                    ),
                   ),
-                  SizedBox(
-                    width: 40,
-                  ),
-                  Column(
-                    children: [
-                      Row(
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => OvMyCer()),
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 30),
+                      child: Column(
                         children: [
-                          Image.asset('assets/gift.png'),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(5, 8, 0, 0),
-                            child: Text(
-                              '2',
-                              style: TextStyle(
-                                  fontSize: 60,
-                                  color: Color.fromRGBO(111, 116, 183, 1)),
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset('assets/cer.png'),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(5, 8, 0, 0),
+                                child: Text(
+                                  '10',
+                                  style: TextStyle(
+                                      fontSize: 60,
+                                      color: Color.fromRGBO(111, 116, 183, 1)),
+                                ),
+                              ),
+                            ],
                           ),
+                          Text('ประกาศนียบัตร',
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.grey))
                         ],
                       ),
-                      Text('รางวัล',
-                          style: TextStyle(fontSize: 16, color: Colors.grey))
-                    ],
+                    ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/score.png'),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(5, 8, 0, 0),
+                              child: Text(
+                                '725',
+                                style: TextStyle(
+                                    fontSize: 60,
+                                    color: Color.fromRGBO(111, 116, 183, 1)),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Text('คะแนนสะสม',
+                            style: TextStyle(fontSize: 16, color: Colors.grey))
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/gift.png'),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(5, 8, 0, 0),
+                              child: Text(
+                                '2',
+                                style: TextStyle(
+                                    fontSize: 60,
+                                    color: Color.fromRGBO(111, 116, 183, 1)),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Text('รางวัล',
+                            style: TextStyle(fontSize: 16, color: Colors.grey))
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 50),
+                    child: Image.asset('assets/bottom_overall.png'),
+                  )
                 ],
               ),
             ),
-            SizedBox(
-              height: 80,
-            ),
-            Image.asset('assets/bottom_overall.png')
           ],
         ),
       ),

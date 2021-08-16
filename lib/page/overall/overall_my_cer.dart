@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:we_learn/page/my_course/my_course.dart';
 import 'package:we_learn/page/noti/noti.dart';
 
 class OvMyCer extends StatefulWidget {
@@ -63,90 +64,25 @@ class _OvMyCerState extends State<OvMyCer> {
         ),
         body: Padding(
           padding: const EdgeInsets.all(20),
-          child: Column(
+          child: ListView(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: Row(
-                  children: [
-                    Text(
-                      'ประกาศนียบัตรทั้งหมด 5 รายการ',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 10, 15),
-                      child: Icon(
-                        Icons.play_circle,
-                        color: Color.fromRGBO(111, 116, 183, 1),
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: Row(
                       children: [
-                        Text('Time Management การบริหารจัดหารเวลา'),
                         Text(
-                          'ดาวน์โหลดใบประกาศ ฯ',
-                          style: TextStyle(color: Colors.green),
+                          'ประกาศนียบัตรทั้งหมด 5 รายการ',
+                          style: TextStyle(color: Colors.grey),
                         ),
                       ],
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 10, 15),
-                      child: Icon(
-                        Icons.play_circle,
-                        color: Color.fromRGBO(111, 116, 183, 1),
-                      ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Time Management การบริหารจัดหารเวลา'),
-                        Text(
-                          'ดาวน์โหลดใบประกาศ ฯ',
-                          style: TextStyle(color: Colors.green),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 10, 15),
-                      child: Icon(
-                        Icons.play_circle,
-                        color: Color.fromRGBO(111, 116, 183, 1),
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Time Management การบริหารจัดหารเวลา'),
-                        Text(
-                          'ดาวน์โหลดใบประกาศ ฯ',
-                          style: TextStyle(color: Colors.green),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+                  ),
+                  AllCourseCard2(1.0, Colors.green, true),
+                  AllCourseCard2(1.0, Colors.green, true),
+                  AllCourseCard2(1.0, Colors.green, true),
+                ],
               ),
             ],
           ),
