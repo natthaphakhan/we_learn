@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:we_learn/page/in_course/in_course.dart';
+// import 'package:we_learn/page/in_course/in_course.dart';
 import 'package:we_learn/page/in_course/in_course2.dart';
 import 'package:we_learn/page/pay/componenet/exptile.dart';
 

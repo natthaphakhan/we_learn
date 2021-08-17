@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:we_learn/page/activitie_test/in_at.dart';
-import 'package:we_learn/page/learn/learn.dart';
+// import 'package:we_learn/page/learn/learn.dart';
 
 class FirstST extends StatefulWidget {
   const FirstST({Key? key}) : super(key: key);

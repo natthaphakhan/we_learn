@@ -69,6 +69,7 @@ class _CheckResultState extends State<CheckResult> {
           child: Column(
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
                     onTap: () {
@@ -76,58 +77,71 @@ class _CheckResultState extends State<CheckResult> {
                         onRe2 = false;
                       });
                     },
-                    child: Row(
-                      children: [
-                        Image.asset('assets/bag_money.png'),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '฿956,000',
-                              style: TextStyle(
-                                  color: onRe2 == false
-                                      ? Color.fromRGBO(111, 116, 183, 1)
-                                      : Colors.grey,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              'ยอดขายรวมเดือนนี้ (บาท)',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                          ],
-                        ),
-                      ],
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.grey[400]!)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset('assets/bag_money.png'),
+                              Text(
+                                '฿956,000',
+                                style: TextStyle(
+                                    color: onRe2 == false
+                                        ? Color.fromRGBO(111, 116, 183, 1)
+                                        : Colors.grey,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            'ยอดขายรวมเดือนนี้ (บาท)',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
+                  SizedBox(width: 5),
                   GestureDetector(
                     onTap: () {
                       setState(() {
                         onRe2 = true;
                       });
                     },
-                    child: Row(
-                      children: [
-                        Image.asset('assets/half.png'),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '฿573,600',
-                              style: TextStyle(
-                                  color: onRe2 == true
-                                      ? Color.fromRGBO(111, 116, 183, 1)
-                                      : Colors.grey,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              'ส่วนแบ่งรวมเดือนนี้ (บาท)',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                          ],
-                        ),
-                      ],
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.grey[400]!)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset('assets/half.png'),
+                              Text(
+                                '฿573,600',
+                                style: TextStyle(
+                                    color: onRe2 == true
+                                        ? Color.fromRGBO(111, 116, 183, 1)
+                                        : Colors.grey,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            'ส่วนแบ่งรวมเดือนนี้ (บาท)',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -138,9 +152,9 @@ class _CheckResultState extends State<CheckResult> {
                   children: [Icon(Icons.article_outlined), Text('รายการ')],
                 ),
               ),
-              Container(
+              Expanded(
                 child: onRe2 == false ? Result1() : Result2(),
-              )
+              ),
             ],
           ),
         ),

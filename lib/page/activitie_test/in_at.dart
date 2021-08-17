@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:we_learn/page/activitie_test/finish_activity.dart';
-import 'package:we_learn/page/learn/learn.dart';
+// import 'package:we_learn/page/learn/learn.dart';
 
 class InActivitie extends StatefulWidget {
   const InActivitie({Key? key}) : super(key: key);

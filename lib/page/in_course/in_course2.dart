@@ -9,7 +9,7 @@ import 'package:we_learn/page/in_course/component/reccourse.dart';
 import 'package:we_learn/page/learn/learn.dart';
 import 'package:we_learn/page/my_profile/my_profile.dart';
 import 'package:we_learn/page/overall/overall.dart';
-import 'package:we_learn/page/pay/pay.dart';
+// import 'package:we_learn/page/pay/pay.dart';
 import 'package:we_learn/page/sign_in/sign_in.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 

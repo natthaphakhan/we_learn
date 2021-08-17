@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
+// ignore: must_be_immutable
 class TxtBox extends StatefulWidget {
   double wd;
   Color cl;
